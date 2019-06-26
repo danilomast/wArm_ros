@@ -1,0 +1,1 @@
+controller_joint_names: ['joint_1', 'joint_2', 'joint_triangle', 'joint_bip_up', 'joint_forearm', 'joint_ee', 'joint_bip_low', 'joint_3', 'joint_tirante', 'joint_upper_fake', ]

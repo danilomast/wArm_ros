@@ -1,0 +1,590 @@
+<robot
+  name="warm_model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.63677968348475E-16 -1.2490009027033E-16 0.000438743376235284"
+        rpy="0 0 0" />
+      <mass
+        value="0.568507830781543" />
+      <inertia
+        ixx="1.61047681006272E-05"
+        ixy="1.19603712272453E-32"
+        ixz="-1.97900613397195E-18"
+        iyy="1.61047681006272E-05"
+        iyz="7.13862471960469E-19"
+        izz="3.91035413623175E-30" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+		filename="package://warm_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shoulder_link">
+    <inertial>
+      <origin
+        xyz="0.0282001916785199 0.00544413919479672 0.0380190294969099"
+        rpy="0 0 0" />
+      <mass
+        value="1.79741106100345" />
+      <inertia
+        ixx="0.00441062391217284"
+        ixy="0.000291816593951301"
+        ixz="0.000344074824993903"
+        iyy="0.00204657894512575"
+        iyz="3.49985639960612E-05"
+        izz="0.00610797249781464" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="continuous">
+    <origin
+      xyz="-0.00441252043298147 0.00544284112182545 0.0485376816415833"
+      rpy="2.36658271566304E-30 1.26531078261971E-16 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder_link" />
+    <axis
+      xyz="0 0 1" />
+
+  </joint>
+  <link
+    name="arm_link">
+    <inertial>
+      <origin
+        xyz="-3.23769957774785E-06 0.0471051846740893 -0.0324432685236045"
+        rpy="0 0 0" />
+      <mass
+        value="0.0254633346182841" />
+      <inertia
+        ixx="1.25157074221025E-05"
+        ixy="-1.56921474872636E-09"
+        ixz="5.3008167697621E-10"
+        iyy="1.28188339426665E-06"
+        iyz="3.79479252317543E-06"
+        izz="1.12338244662324E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/arm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/arm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="-0.0348159923703428 0.0462928411218232 0.0682974228654307"
+      rpy="1.57079632679488 3.21165371746374E-14 -3.14159265358979" />
+    <parent
+      link="shoulder_link" />
+    <child
+      link="arm_link" />
+    <axis
+      xyz="0 0 -1" />
+   <limit effort="300" lower="-1" upper="0.8" velocity="1"/>
+  </joint>
+  <link
+    name="triangle_link">
+    <inertial>
+      <origin
+        xyz="-0.0098309962470092 0.0229736662249133 -0.0408500000000019"
+        rpy="0 0 0" />
+      <mass
+        value="0.00657871823688291" />
+      <inertia
+        ixx="6.88477665605832E-06"
+        ixy="-1.57726607066063E-20"
+        ixz="5.03749267461247E-13"
+        iyy="6.88477665605835E-06"
+        iyz="2.15566062837827E-13"
+        izz="4.36100610154889E-20" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/triangle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/triangle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="-0.0348148492303428 -0.00180715887817685 0.0682974337952276"
+      rpy="1.57079632679488 3.21187456915242E-14 -3.14159265358979" />
+    <parent
+      link="shoulder_link" />
+    <child
+      link="wheel_joint3_link" />
+    <axis
+      xyz="0 0 -1" />
+	<limit effort="300" lower="0" upper="1" velocity="1"/>
+  </joint>
+
+
+
+  <joint
+    name="joint_triangle"
+    type="continuous">
+    <origin
+      xyz="0 0.2 0"
+      rpy="-2.2985716467473E-17 3.60822483002508E-16 3.20125831334145E-14" />
+    <parent
+      link="arm_link" />
+    <child
+      link="triangle_link" />
+    <axis
+      xyz="0 0 -1" />
+<mimic joint="joint_2" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="bip_up_link">
+    <inertial>
+      <origin
+        xyz="0.107349999999985 2.21208102946235E-08 -0.0423500000000018"
+        rpy="0 0 0" />
+      <mass
+        value="0.00777564504195493" />
+      <inertia
+        ixx="1.39457943347596E-05"
+        ixy="2.5578757073893E-35"
+        ixz="1.79203500220456E-20"
+        iyy="1.39457943347596E-05"
+        iyz="-1.52949319584692E-20"
+        izz="1.6311679166719E-23" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/bip_up_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/bip_up_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_bip_up"
+    type="continuous">
+    <origin
+      xyz="0.0233973856952177 0.0441878076241449 0.00150000000000007"
+      rpy="5.49678260828423E-17 -1.11022302462546E-16 -2.06062321885303E-07" />
+    <parent
+      link="triangle_link" />
+    <child
+      link="bip_up_link" />
+    <axis
+      xyz="0 0 -1" />
+<mimic joint="joint_3" multiplier="1.0" offset="0.0" />
+  </joint>
+  <link
+    name="forearm_link">
+    <inertial>
+      <origin
+        xyz="0.0753335277212423 0.00398365194247818 -0.0400000000000017"
+        rpy="0 0 0" />
+      <mass
+        value="0.0200863347953575" />
+      <inertia
+        ixx="2.16300605420972E-06"
+        ixy="-4.03046971310707E-07"
+        ixz="6.78225550864431E-20"
+        iyy="2.47830338644395E-05"
+        iyz="-1.29820670754701E-20"
+        izz="2.26343863530668E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/forearm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/forearm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_forearm"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.64711001566526E-25 -4.10693792315582E-21 0" />
+    <parent
+      link="triangle_link" />
+    <child
+      link="forearm_link" />
+    <axis
+      xyz="0 0 -1" />
+<mimic joint="joint_3" multiplier="1.0" offset="0.0" /> 
+  </joint>
+  <link
+    name="ee_link">
+    <inertial>
+      <origin
+        xyz="0.0212319309123046 -0.0161270448406347 0.000889344383365735"
+        rpy="0 0 0" />
+      <mass
+        value="0.00772486120122907" />
+      <inertia
+        ixx="8.08424105646329E-06"
+        ixy="-2.80738191940101E-20"
+        ixz="-4.15174760182464E-13"
+        iyy="8.08424105646328E-06"
+        iyz="-5.46650575756983E-13"
+        izz="5.82897326146114E-20" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/ee_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/ee_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_ee"
+    type="continuous">
+    <origin
+      xyz="0.2147 0 -0.0400000000000018"
+      rpy="-3.14159265358979 -1.80411241501618E-16 -2.06062321884982E-07" />
+    <parent
+      link="forearm_link" />
+    <child
+      link="ee_link" />
+    <axis
+      xyz="0 0 1" />
+<mimic joint="joint_3" multiplier="-1.0" offset="0.0" /> 
+  </joint>
+  <link
+    name="bip_low_link">
+    <inertial>
+      <origin
+        xyz="-2.8433860084498E-07 0.100000005464075 -0.04235"
+        rpy="0 0 0" />
+      <mass
+        value="0.00730527473889493" />
+      <inertia
+        ixx="1.31021746128899E-05"
+        ixy="1.13498185225961E-17"
+        ixz="-8.79682264708401E-11"
+        iyy="1.31021746134803E-05"
+        iyz="1.69046609297699E-12"
+        izz="5.9083830068206E-16" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/bip_low_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/bip_low_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_bip_low"
+    type="continuous">
+    <origin
+      xyz="0.0182093825642707 0.0477928411218226 0.0963742747730726"
+      rpy="1.57079632679488 3.21166955392916E-14 -3.14159265358979" />
+    <parent
+      link="shoulder_link" />
+    <child
+      link="bip_low_link" />
+    <axis
+      xyz="0 0 -1" />
+<mimic joint="joint_2" multiplier="1.0" offset="0.0" />
+  </joint>
+  <link
+    name="wheel_joint3_link">
+    <inertial>
+      <origin
+        xyz="-0.00469089605888161 7.55122060958069E-06 -0.00854098483970626"
+        rpy="0 0 0" />
+      <mass
+        value="0.0109151851364545" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/wheel_joint3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_description/meshes/wheel_joint3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+<!--
+  <link
+    name="rod_link">
+    <inertial>
+      <origin
+        xyz="5.71569996207777E-07 0.0999999999983664 1.73472347597681E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.00365263736944747" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bip_prova/meshes/rod_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bip_prova/meshes/rod_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_tirante"
+    type="continuous">
+    <origin
+      xyz="-0.0685000000000221 0 0.00809999999999808"
+      rpy="1.24329734746202E-17 -6.93889390391024E-17 -9.48598781133975E-19" />
+    <parent
+      link="wheel_joint3_link" />
+    <child
+      link="rod_link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="upper_fake_link">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 0 -0.00579999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.00343061917772006" />
+      <inertia
+        ixx="1.15406029138502E-07"
+        ixy="-1.41059322098675E-37"
+        ixz="1.78935213895578E-22"
+        iyy="1.15406029138502E-07"
+        iyz="8.51258100706011E-23"
+        izz="1.19465313298197E-25" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bip_prova/meshes/upper_fake_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bip_prova/meshes/upper_fake_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_upper_fake"
+    type="revolute">
+    <origin
+      xyz="0 0.199999999996736 0.00579999999999999"
+      rpy="-1.31993967688474E-17 2.77555756155988E-17 1.00707459178551E-18" />
+    <parent
+      link="rod_link" />
+    <child
+      link="upper_fake_link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+-->
+</robot>

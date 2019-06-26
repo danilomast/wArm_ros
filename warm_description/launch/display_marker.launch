@@ -1,0 +1,19 @@
+<launch>
+
+  <!--Configuration parameters -->	
+  <arg name="model" default="$(find warm_description)/urdf/warm_model.urdf"/>
+  <arg name="gui" default="false" />
+  <arg name="rvizconfig" default="$(find warm_description)/rviz/display_marker.rviz" />
+
+  <param name="robot_description" textfile="$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+
+
+  <!--Default node -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <!--Joint publisher (custom) and rviz nodes -->
+  <node name="joint_publisher" pkg="warm_description" type="joint_publisher" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

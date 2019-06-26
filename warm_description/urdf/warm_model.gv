@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"shoulder_link" [label="shoulder_link"];
+"arm_link" [label="arm_link"];
+"triangle_link" [label="triangle_link"];
+"bip_up_link" [label="bip_up_link"];
+"forearm_link" [label="forearm_link"];
+"ee_link" [label="ee_link"];
+"wheel_joint3_link" [label="wheel_joint3_link"];
+"bip_low_link" [label="bip_low_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "joint_1" [label="xyz: -0.00441252 0.00544284 0.0485377 \nrpy: 2.36658e-30 1.26531e-16 3.14159"]
+"joint_1" -> "shoulder_link"
+"shoulder_link" -> "joint_2" [label="xyz: -0.034816 0.0462928 0.0682974 \nrpy: 1.5708 3.21165e-14 -3.14159"]
+"joint_2" -> "arm_link"
+"arm_link" -> "joint_triangle" [label="xyz: 0 0.2 0 \nrpy: -2.29857e-17 3.60822e-16 3.20126e-14"]
+"joint_triangle" -> "triangle_link"
+"triangle_link" -> "joint_bip_up" [label="xyz: 0.0233974 0.0441878 0.0015 \nrpy: 5.49678e-17 -1.11022e-16 -2.06062e-07"]
+"joint_bip_up" -> "bip_up_link"
+"triangle_link" -> "joint_forearm" [label="xyz: 0 0 0 \nrpy: 1.64711e-25 -4.10694e-21 0"]
+"joint_forearm" -> "forearm_link"
+"forearm_link" -> "joint_ee" [label="xyz: 0.2147 0 -0.04 \nrpy: -3.14159 -1.80411e-16 -2.06062e-07"]
+"joint_ee" -> "ee_link"
+"shoulder_link" -> "joint_3" [label="xyz: -0.0348148 -0.00180716 0.0682974 \nrpy: 1.5708 3.21187e-14 -3.14159"]
+"joint_3" -> "wheel_joint3_link"
+"shoulder_link" -> "joint_bip_low" [label="xyz: 0.0182094 0.0477928 0.0963743 \nrpy: 1.5708 3.21167e-14 -3.14159"]
+"joint_bip_low" -> "bip_low_link"
+}

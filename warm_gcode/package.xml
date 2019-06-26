@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>warm_gcode</name>
+  <version>1.0.0</version>
+  <description>Gcode interpreter</description>
+  <license>BSD</license>
+
+  <author email="danilomast@gmail.com">Danilo Mastroianni</author>
+  <maintainer email="danilomast@gmail.com">Danilo Mastroianni</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
